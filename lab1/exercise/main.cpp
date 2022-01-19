@@ -8,8 +8,11 @@ int main(int argc, char* argv[])
         cout<< "file name missing"<<endl;
         return -1;
     }
+
+
+    string fileName = argv[1];//TODO 1: collect the correct argument
+
     
-    string fileName = ;//TODO 1: collect the correct argument
     student array[4];
     
     //open the file
@@ -21,17 +24,19 @@ int main(int argc, char* argv[])
     string emailid;
     string birthday;
     int length=0;
-    
+
     if(myfile.is_open())//check existance of the file
     {
         //TODO 2:  Read each line from the file
         //          for each line do the following
         //              extract name, extract email, exract birthday
         //              call the addAstudent function to add them in the array
-        while(getline(myfile, line))
+        while(getline(myfile, name, ','))
         {
-            
-          
+            getline(myfile, emailid, ',');
+            getline(myfile, birthday, '\n');
+
+            length = addAstudent(array, name, birthday, emailid, length);
         }
     }
     else{
@@ -42,6 +47,5 @@ int main(int argc, char* argv[])
     {
         cout<< "name:"<<array[i].name<<" email:"<<array[i].email<<" bday:"<<array[i].birthday<<endl;
     }
-    
     return 0;
 }
