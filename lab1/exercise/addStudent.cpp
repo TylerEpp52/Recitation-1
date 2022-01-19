@@ -6,8 +6,12 @@ int addAstudent(student arr[], string name, string birthday, string emailid, int
 ** it will return the next available index in the array
 */
 {
-    
-    return 0;
+    arr[count].name = name;
+    arr[count].birthday = birthday;
+    arr[count].email = emailid;
+
+    count = count + 1;
+    return count;
         
 }
            
